@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+
+{% block title %}Cardápio Digital | Início {% endblock %}
+
+
+{% block content %}
+
+<h1 class="fw-bold" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.801);">Início</h1>
+
+<h1 class="text-center" style="color: darkkhaki;"> Bem-Vindo ao nosso Cardápio Digital.</h1>
+
+<p class="text-center" style="color: darkkhaki;">Nossa loja fica localizada na <a
+        href="https://maps.app.goo.gl/3nXSb1jAJUSX6w1Y6">Rua Indiária, 521 - Siqueira, Fortaleza - CE, 60736-030
+        Brasil</a>. <br> E o nosso número para contato é <a href="tel:85985065421">(85) 985065421</a></p>
+
+<p class="text-center" style="color: rgb(255, 255, 255);">Faça seu cadastro para fazer seu pedido e acumular pontos.</p>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Cadastre-se
+</button>
+
+<!-- Modal -->
+<form method="post">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleInputNome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="exampleInputNome" placeholder="Digíte Seu Nome">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEndereço" class="form-label">Endereço</label>
+                        <input type="text" class="form-control" id="exampleInputEndereço"
+                            placeholder="Digíte Seu Endereço">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputTelefone" class="form-label">Telefone</label>
+                        <input type="tel" class="form-control" id="exampleInputTelefone"
+                            placeholder="Digite seu telefone">
+
+                        <small id="erroTelefone" class="text-danger" style="display:none;">
+                            Digite apenas números!
+                        </small>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+
+
+<script>
+    const telInput = document.getElementById("exampleInputTelefone");
+    const erro = document.getElementById("erroTelefone");
+
+    telInput.addEventListener("input", () => {
+        if (/[^0-9]/.test(telInput.value)) {
+            erro.style.display = "block";     // Mostra mensagem
+            telInput.value = telInput.value.replace(/[^0-9]/g, ""); // Remove letras
+        } else {
+            erro.style.display = "none";      // Esconde se estiver ok
+        }
+    });
+</script>
+
+{% endblock %}
