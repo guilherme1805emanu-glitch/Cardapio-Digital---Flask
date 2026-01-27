@@ -30,23 +30,17 @@
                         <a class="nav-link fw-bold" aria-current="page" href="/">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" aria-current="page" href="/Pizzas Tradicionáis">Pizzas
-                            Tradicionais</a>
+                        <a class="nav-link fw-bold" aria-current="page" href="/pizzas">Pizzas
+                            </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/Pizzas Artesanáis">Pizzas Artesanáis</a>
+                        <a class="nav-link fw-bold" href="/promocoes">Promoções</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/Pizzas Metade Metade">Pizzas Metade Metade</a>
+                        <a class="nav-link fw-bold" href="/bebidas">Bebidas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/Pizzas Promoções do Dia">Promoções do dia</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/Bebidas">Bebidas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/Pontuação">Pontuação</a>
+                        <a class="nav-link fw-bold" href="/pontuação">Pontuação</a>
                     </li>
 
                 </ul>
@@ -56,12 +50,13 @@
     </nav>
 
 
-    {% block content %}{% endblock %}
 
     <footer class="bg-primary text-white text-center p-1 fixed-bottom">
         <p>Cardápio Digital criado por Emanuel FullStack - (85)981918445 <br> © 2026 Cardápio Digital. Todos os direitos
             reservados.</p>
     </footer>
+    
+    {% block content %}{% endblock %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

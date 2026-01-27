@@ -6,33 +6,22 @@ app= Flask(__name__)
 def route1():
     return render_template("inicio.html")
 
-
-@app.route('/Pizzas Tradicionáis')
+@app.route('/pizzas')
 def route2():
-    return render_template("pizzasTradicionais.html")
+    return render_template("pizzas.html")
 
 
-@app.route('/Pizzas Artesanáis')
-def route3():
-    return render_template("pizzasArtesanais.html")
-
-
-@app.route('/Pizzas Metade Metade')
-def route4():
-    return render_template("pizzasMetade.html")
-
-
-@app.route('/Pizzas Promoções do Dia')
+@app.route('/promocoes')
 def route5():
     return render_template("promoçoes.html")
 
 
-@app.route('/Bebidas')
+@app.route('/bebidas')
 def route6():
     return render_template("bebidas.html")
 
 
-@app.route('/Pontuação')
+@app.route('/pontuação')
 def route7():
     return render_template("pontuaçao.html")
 
