@@ -6,22 +6,71 @@
 
 {% block content %}
 
-<h1 class="fw-bold" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.801);">Pizzas Tradicionáis</h1>
+<div class="d-flex grap-3 container">
+    <a href="/pizzasTradicionais.html"><h3 class="fw-bold container" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.801);">Pizzas Tradicionáis</h3></a>
+   <a href="/pizzasartesanais.html"><h3 class="fw-bold container" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.801);">Pizzas Artesanáis</h3></a>
+    <a href="/doce.html"><h3 class="fw-bold container" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.801);">Pizzas Doces</h3></a>
+</div>
 
 
 <div class="container mt-5">
-    <div class="row gy-3">
-        <div class="col-12 col-md-6 col-xl-3">
-            <div class="card">
-                <img src="https://blog.novasafra.com.br/wp-content/uploads/2016/01/accb7d_37d37d9f1001e88384dafc6e5cc60c4f.jpg_1024.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Calabresa</h5>
-                    <p class="card-text">Molho de tomate, mussarela, calabresa e cebola</p>
-                    <span>Pequena(4 pdç): R$ 12 <br> Média(6 pdç): R$ 20 <br> Grande(8 pdç): R$ 30</span>                   
-                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
-                </div>
-            </div>
+  <div class="row gy-3">
+
+    <!-- Card 1 -->
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="card h-100">
+        <img src="https://blog.novasafra.com.br/wp-content/uploads/2016/01/accb7d_37d37d9f1001e88384dafc6e5cc60c4f.jpg_1024.jpg"
+             class="card-img-top" alt="Calabresa">
+        <div class="card-body">
+          <h5 class="card-title">Calabresa</h5>
+          <p class="card-text">Molho de tomate, mussarela, calabresa e cebola</p>
+          <span>
+            Pequena: R$ 12 <br>
+            Média: R$ 20 <br>
+            Grande: R$ 30
+          </span>
+          <a href="#" class="btn btn-primary w-100 mt-3">Adicionar ao carrinho</a>
         </div>
-    
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="card h-100">
+        <img src="/static/carnedosol.jpg"
+             class="card-img-top" alt="Carne do sol ">
+        <div class="card-body">
+          <h5 class="card-title">Carne do Sol</h5>
+          <p class="card-text">Molho de tomate, mussarela, cebola, carne do sol, tomate, pimentão, azeitona, orégano.</p>
+          <span>
+            Pequena: R$ 15 <br>
+            Média: R$ 25 <br>
+            Grande: R$ 35
+          </span>
+          <a href="#" class="btn btn-primary w-100 mt-3">Adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+        <!-- Card 3 -->
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="card h-100">
+        <img src="/static/doce.jpg"
+             class="card-img-top" alt="Doce de MM's">
+        <div class="card-body">
+          <h5 class="card-title">Chocolate com MM'S</h5>
+          <p class="card-text">chocolate, mm's</p>
+          <span>
+            Pequena: R$ 15 <br>
+            Média: R$ 25 <br>
+            Grande: R$ 35
+          </span>
+          <a href="#" class="btn btn-primary w-100 mt-3">Adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
 {% endblock %}
