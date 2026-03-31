@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" style="color: thistle;">
+    {{ form.hidden_tag() }}
+
+    <h2>Login</h2>
+
+    <div class="form-group">
+        {{ form.email.label(class='form-label') }}
+        {{ form.email(class = 'form-control', placeholder="Digíte Seu Email") }}
+        <div>
+            {% for error in form.email.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form.password.label (class='form-label') }}
+        {{ form.password(class = 'form-control', placeholder="Digíte Sua Senha") }}
+        <div>
+            {% for error in form.password.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <button type="submit" style="margin-top: 50px;" class="btn btn-outline-primary">Login</button>
+</form>
+
+{% endblock %}
