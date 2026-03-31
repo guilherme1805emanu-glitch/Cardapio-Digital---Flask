@@ -14,14 +14,11 @@
         href="https://maps.app.goo.gl/3nXSb1jAJUSX6w1Y6">Rua Indiária, 521 - Siqueira, Fortaleza - CE, 60736-030
         Brasil</a>. <br> E o nosso número para contato é <a href="tel:85985065421">(85) 985065421</a></p>
 
-<p class="text-center" style="color: rgb(255, 255, 255);">Faça seu cadastro para fazer seu pedido e acumular pontos.</p>
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Cadastre-se
-</button>
 
 <!-- Modal -->
-<form method="post">
+<form method="Post">
+    {{ form.hidden_tag() }}
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -30,46 +27,63 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="exampleInputNome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="exampleInputNome" placeholder="Digíte Seu Nome">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEndereço" class="form-label">Endereço</label>
-                        <input type="text" class="form-control" id="exampleInputEndereço"
-                            placeholder="Digíte Seu Endereço">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputTelefone" class="form-label">Telefone</label>
-                        <input type="tel" class="form-control" id="exampleInputTelefone"
-                            placeholder="Digite seu telefone">
 
-                        <small id="erroTelefone" class="text-danger" style="display:none;">
-                            Digite apenas números!
-                        </small>
+                    <div class="form-group">
+                        {{ form.name.label(class='form-label') }}
+                        {{ form.name(class='form-control', placeholder="Digíte Seu Nome") }}
+                        <div>
+                            {% for error in form.name.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
                     </div>
+
+                    <div class="form-group">
+                        {{ form.email.label(class='form-label') }}
+                        {{ form.email(class='form-control', placeholder="Digíte Seu Email") }}
+                        <div>
+                            {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.password.label(class='form-label') }}
+                        {{ form.password(class='form-control',placeholder="Digite sua Senha") }}
+                        <div>
+                            {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.telephone.label(class='form-label') }}
+                        {{ form.telephone(class='form-control',placeholder="Digite seu telefone") }}
+                        <div>
+                            {% for error in form.telephone.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.address.label(class='form-label') }}
+                        {{ form.address(class='form-control',placeholder="Digite seu Endereço") }}
+                        <div>
+                            {% for error in form.address.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
                     </div>
                 </div>
             </div>
         </div>
 </form>
-
-
-<script>
-    const telInput = document.getElementById("exampleInputTelefone");
-    const erro = document.getElementById("erroTelefone");
-
-    telInput.addEventListener("input", () => {
-        if (/[^0-9]/.test(telInput.value)) {
-            erro.style.display = "block";     // Mostra mensagem
-            telInput.value = telInput.value.replace(/[^0-9]/g, ""); // Remove letras
-        } else {
-            erro.style.display = "none";      // Esconde se estiver ok
-        }
-    });
-</script>
 
 {% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" style="color: white;">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        {{ form.name.label }}
+        {{ form.name() }}
+        <div>
+            {% for error in form.name.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form.email.label }}
+        {{ form.email() }}
+        <div>
+            {% for error in form.email.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password() }}
+        <div>
+            {% for error in form.password.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form.telephone.label }}
+        {{ form.telephone() }}
+        <div>
+            {% for error in form.telephone.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form.address.label }}
+        {{ form.address() }}
+        <div>
+            {% for error in form.address.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+    <button type="submit">Enviar</button>
+</form>
+
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
