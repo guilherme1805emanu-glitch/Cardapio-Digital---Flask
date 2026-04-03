@@ -56,7 +56,7 @@
                     <!-- Área de login/logout -->
                     <div class="d-flex gap-3 align-items-center">
                         {% if current_user.is_authenticated %}
-                        <span>Olá, {{ current_user.name }}</span>
+                        <span>Olá, {{ current_user.username }}</span>
                         <a href="/auth/logout" class="btn btn-outline-secondary">
                             Sair
                         </a>

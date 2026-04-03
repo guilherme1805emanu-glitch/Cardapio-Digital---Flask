@@ -14,7 +14,7 @@ def register():
 
     form = RegisterForm()
     if request.method == "GET":
-        form.name.data = request.args.get('name', '')
+        form.username.data = request.args.get('name', '')
         form.email.data = request.args.get('email', '')
         form.password.data = request.args.get('password', '')
         form.telephone.data = request.args.get('telephone', '')

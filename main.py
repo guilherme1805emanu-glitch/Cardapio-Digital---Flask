@@ -5,7 +5,7 @@ from definitions.dashboard import dashboard_routes
 from connection import db
 
 from routes.inicio import app_inicio
-from routes.categorias import categorias_routes
+from routes.categorias import categories_routes
 
 
 app= Flask(__name__)
@@ -25,7 +25,7 @@ login_manager.login_view = 'auth.login'
 
 
 app.register_blueprint(app_inicio)
-app.register_blueprint(categorias_routes)
+app.register_blueprint(categories_routes)
 
 @app.route('/pizzas')
 def route2():

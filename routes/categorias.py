@@ -1,22 +1,28 @@
 from flask import Blueprint, render_template, flash, redirect, request
 from connection import db
-from definitions.categorias import Categoria, CategoriaForm
+from definitions.categorias import Categoria, CategoryForm, CategoryType
 
-categorias_routes = Blueprint('categorias', __name__)
+categories_routes = Blueprint('categorias',__name__)
 
-@categorias_routes.route('/categorias', methods=['GET', 'POST'])
+@categories_routes.route('/categorias', methods=['GET', 'POST'])
 def categorias():
-    form = CategoriaForm()
-    if form.validate_on_submit():
-        existing_categoria = Categoria.query.filter_by(name=form.name.data).first()
-        if existing_categoria:
-            flash('O nome da categoria já existe. Por favor, escolha outro.', 'danger')
+    form = CategoryForm()
 
-        if existing_categoria is None:
-            new_categoria = Categoria(name=form.name.data)
+    if form.validate_on_submit():
+        new_categoria = Categoria(
+            name=form.name.data,
+            category_type=form.category_type.data
+        )
+
+        try:
             db.session.add(new_categoria)
             db.session.commit()
             flash('Categoria criada com sucesso.', 'success')
+        except Exception:
+            db.session.rollback()
+            flash('Erro ao salvar categoria.', 'danger')
+
+        return redirect(request.url)
 
     categorias_list = Categoria.query.all()
     return render_template('categorias.html', form=form, categorias=categorias_list)
