@@ -1,12 +1,11 @@
 from flask import Blueprint, flash, redirect, render_template, request
-from flask_login import current_user
 from definitions.user import User, RegisterForm
 from connection import db
 
 
-app_inicio = Blueprint('inicio', __name__)
+app_home = Blueprint('inicio', __name__)
 
-@app_inicio.route('/' , methods=['GET', 'POST'])
+@app_home.route('/' , methods=['GET', 'POST'])
 def route1():
     form = RegisterForm(request.form)
  

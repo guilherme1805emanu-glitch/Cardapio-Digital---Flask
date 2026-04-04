@@ -4,8 +4,8 @@ from flask_login import LoginManager
 from definitions.dashboard import dashboard_routes  
 from connection import db
 
-from routes.inicio import app_inicio
-from routes.categorias import categories_routes
+from routes.home import app_home
+from routes.categories import categories_routes
 
 
 app= Flask(__name__)
@@ -24,37 +24,37 @@ login_manager.init_app(app)
 login_manager.login_view = 'auth.login'
 
 
-app.register_blueprint(app_inicio)
+app.register_blueprint(app_home)
 app.register_blueprint(categories_routes)
 
 @app.route('/pizzas')
-def route2():
+def route_pizzas():
     return render_template("pizzas.html")
 
 
-@app.route('/promocoes')
-def route3():
-    return render_template("promoçoes.html")
+@app.route('/promotion')
+def route_promotion():
+    return render_template("promotion.html")
 
 
-@app.route('/bebidas')
-def route4():
-    return render_template("bebidas.html")
+@app.route('/drinks')
+def route_drinks():
+    return render_template("drinks.html")
 
 
-@app.route('/pontuação')
-def route5():
-    return render_template("pontuaçao.html")
+@app.route('/score')
+def route_score():
+    return render_template("score.html")
 
 
-@app.route("/pizzas-tradicionais")
-def route6():
-    return render_template("/pizzasTradicionais.html")
+@app.route("/traditional-pizzas")
+def route_tradicional_pizza():
+    return render_template("/traditionalPizzas.html")
 
 
-@app.route("/pizzas-artesanais")
-def route7():
-    return render_template("/pizzasartesanais.html")
+@app.route("/artisan-pizzas")
+def route_artisan_pizzas():
+    return render_template("/artisanPizzas.html")
 
 
 @login_manager.user_loader

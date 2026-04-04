@@ -13,7 +13,7 @@ class CategoryType(enum.Enum):
 
 class CategoryForm(FlaskForm):
     name = StringField(
-        "Nome da Categoria",
+        "Nome da Category",
         validators=[
             DataRequired(message="O nome da categoria é obrigatório"),
             Length(min=2, max=50, message="O nome da categoria deve ter entre 2 e 50 caracteres")
@@ -21,7 +21,7 @@ class CategoryForm(FlaskForm):
     )
 
     category_type = SelectField(
-        "Tipo da Categoria",
+        "Tipo da Category",
         choices=[(tag.name, tag.value) for tag in CategoryType],
         coerce=lambda x: CategoryType[x],
         validators=[DataRequired()]
@@ -30,14 +30,14 @@ class CategoryForm(FlaskForm):
     def validate_name(self, field):
         nome = field.data.strip().title()
 
-        categoria = Categoria.query.filter_by(name=nome).first()
-        if categoria:
+        category = Category.query.filter_by(name=nome).first()
+        if category:
             raise ValidationError("Essa categoria já existe.")
 
         field.data = nome
 
-class Categoria(db.Model):
-    __tablename__ = 'categorias'
+class Category(db.Model):
+    __tablename__ = 'categories'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False, unique= True)
@@ -46,4 +46,4 @@ class Categoria(db.Model):
         nullable=False
     )
     def __repr__(self):
-        return f"<Categoria {self.name} - {self.category_type.value if self.category_type else 'N/A'}>"
+        return f"<Category {self.name} - {self.category_type.value if self.category_type else 'N/A'}>"

@@ -1,15 +1,15 @@
 from flask import Blueprint, render_template, flash, redirect, request
 from connection import db
-from definitions.categorias import Categoria, CategoryForm, CategoryType
+from definitions.categories import Category, CategoryForm
 
-categories_routes = Blueprint('categorias',__name__)
+categories_routes = Blueprint('categories',__name__)
 
-@categories_routes.route('/categorias', methods=['GET', 'POST'])
+@categories_routes.route('/categories', methods=['GET', 'POST'])
 def categorias():
     form = CategoryForm()
 
     if form.validate_on_submit():
-        new_categoria = Categoria(
+        new_categoria = Category(
             name=form.name.data,
             category_type=form.category_type.data
         )
@@ -24,5 +24,5 @@ def categorias():
 
         return redirect(request.url)
 
-    categorias_list = Categoria.query.all()
+    categorias_list = Category.query.all()
     return render_template('categorias.html', form=form, categorias=categorias_list)
