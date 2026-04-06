@@ -1,39 +1,8 @@
-from flask import Blueprint, render_template,flash, redirect, request
-from connection import db
+from flask import Blueprint, render_template,flash, redirect
 from flask_login import login_user, logout_user,current_user
-from definitions.user import User, RegisterForm, LoginForm
-from connection import db
+from definitions.user import User, LoginForm
 
 auth_routes =  Blueprint('auth', __name__)
-
-
-@auth_routes.route('/register', methods=['GET', 'POST'])
-def register():
-    if current_user.is_authenticated:
-        return redirect('/')
-
-    form = RegisterForm()
-    if request.method == "GET":
-        form.username.data = request.args.get('name', '')
-        form.email.data = request.args.get('email', '')
-        form.password.data = request.args.get('password', '')
-        form.telephone.data = request.args.get('telephone', '')
-        form.address.data = request.args.get('address', '')
-
-    if form.validate_on_submit():
-        existing_user = User.query.filter_by(username=form.username.data).first()
-        if existing_user:
-            flash('O nome de usuário já existe. Por favor, escolha outro.', 'danger')
-            return render_template('register.html', form=form)
-
-        new_user = User(username=form.username.data)
-        new_user.set_password(form.password.data)
-        db.session.add(new_user)
-        db.session.commit()
-        flash('Cadastro realizado com sucesso. Faça login.', 'success')
-        return redirect('/auth/login')
-
-    return render_template('register.html', form=form)
 
 @auth_routes.route('/login', methods=['GET', 'POST'])
 def login():

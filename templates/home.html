@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Cardápio Digital | Início {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/inicio.css">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="fw-bold" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.801);">Início</h1>
+
+<h1 class="text-center" style="color: darkkhaki;"> Bem-Vindo ao nosso Cardápio Digital.</h1>
+
+<p class="text-center" style="color: darkkhaki;">Nossa loja fica localizada na <a
+        href="https://maps.app.goo.gl/3nXSb1jAJUSX6w1Y6">Rua Indiária, 521 - Siqueira, Fortaleza - CE, 60736-030
+        Brasil</a>. <br> E o nosso número para contato é <a href="tel:85985065421">(85) 985065421</a>
+    
+</p>
+
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div class="combo col-10 col-md-6 col-xl-4 d-flex justify-content-center">
+      <div class="card h-100">
+        <img src="/static/Combo.RC.jpeg" class="card-img-top" alt="Combo">
+        <div class="card-body">
+          <h5 class="card-title">Combo RC</h5>
+          <p class="card-text">1 pizza grande + 1 pizza média + refrigerante 1L</p>
+          <span>
+            Pizzas Tradicionáis: R$ 50,00 <br>
+            Pizzas Artesanáis: R$ 55,00 <br>
+          </span>
+          <a href="#" class="btn btn-primary w-100 mt-3">Adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

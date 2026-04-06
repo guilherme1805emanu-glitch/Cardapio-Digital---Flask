@@ -6,12 +6,45 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from connection import db
 
 class RegisterForm(FlaskForm):
-    email = EmailField("Email", validators=[DataRequired(message= "O Email é obrigatório!"), Email(message="O Email deve ser válido!")])
-    password = PasswordField("Senha", validators=[DataRequired(message= "A senha é obrigatória"), Length(min=6, message="A senha deve ter pelo menos 6 caracteres")])
-    username = StringField("Nome", validators=[DataRequired(message= "O seu nome é obrigatório"), Length(min=2, max=50, message="O nome deve ter entre 2 e 50 caracteres")])
-    telephone = StringField("Telefone", validators=[DataRequired(),Length(min=8, max=11), Regexp(r'^\d{10,15}$', message="O telefone deve conter apenas números e ter entre 10 e 15 dígitos.")])
-    address = StringField("Endereço", validators=[DataRequired( message= "O Endereço é obrigatório"), Length(min=5, max=100, message="O endereço deve ter entre 5 e 100 caracteres")])
+    username = StringField(
+        'Nome de usuário',
+        validators=[
+            DataRequired(message="O nome é obrigatório"),
+            Length(min=3, max=20, message="O nome deve ter entre 3 e 20 caracteres")
+        ]
+    )
 
+    email = StringField(
+        'Email',
+        validators=[
+            DataRequired(message="O email é obrigatório"),
+            Email(message="Email inválido")
+        ]
+    )
+
+    password = PasswordField(
+        'Senha',
+        validators=[
+            DataRequired(message="A senha é obrigatória"),
+            Length(min=6, message="A senha deve ter no mínimo 6 caracteres")
+        ]
+    )
+
+    telephone = StringField(
+        'Telefone',
+        validators=[
+            DataRequired(message="O telefone é obrigatório"),
+            Regexp(r'^\d{10,11}$', message="Digite um telefone válido (somente números)")
+        ]
+    )
+
+    address = StringField(
+        'Endereço',
+        validators=[
+            DataRequired(message="O endereço é obrigatório"),
+            Length(min=5, message="Endereço muito curto")
+        ]
+    )
 class LoginForm(FlaskForm):
     email = EmailField("Email", validators=[DataRequired(message= "O Email é obrigatório"), Email(message="O Email deve ser válido")])
     password = PasswordField("Senha", validators=[DataRequired(message="A senha é obrigatória")])

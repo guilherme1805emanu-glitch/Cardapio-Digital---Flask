@@ -1,7 +1,20 @@
-<!-- {% extends 'base.html' %}
+<title>Cardápio Digital | Welcome </title>
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/welcome.css">
+{% endblock %}
+
 
 {% block content %}
-<form method="POST" style="color: white;">
+
+<div class="welcome welcome-container">
+    <h1>Bem-vindo ao Cardápio Digital!</h1>
+    <p>Explore nosso cardápio
+        e faça seus pedidos de forma rápida e
+        fácil.</p>
+</div>
+
+<form method="POST" style="color: white;" action="/welcome">
     {{ form.hidden_tag() }}
 
     <div class="form-group">
@@ -9,7 +22,7 @@
         {{ form.username() }}
         <div>
             {% for error in form.username.errors %}
-            <span>{{ error }}</span>
+            <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </div>
     </div>
@@ -19,17 +32,17 @@
         {{ form.email() }}
         <div>
             {% for error in form.email.errors %}
-            <span>{{ error }}</span>
+            <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </div>
     </div>
-    
+
     <div class="form-group">
         {{ form.password.label }}
         {{ form.password() }}
         <div>
             {% for error in form.password.errors %}
-            <span>{{ error }}</span>
+            <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </div>
     </div>
@@ -39,7 +52,7 @@
         {{ form.telephone() }}
         <div>
             {% for error in form.telephone.errors %}
-            <span>{{ error }}</span>
+            <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </div>
     </div>
@@ -49,27 +62,12 @@
         {{ form.address() }}
         <div>
             {% for error in form.address.errors %}
-            <span>{{ error }}</span>
+            <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </div>
     </div>
 
-
-
-
     <button type="submit">Enviar</button>
 </form>
 
-<table class="table">
-    <tr>
-        <th>Nome</th>
-        <th>Email</th>
-    </tr>
-    {% for user in users %}
-    <tr>
-        <td>{{user.username}}</td>
-        <td>{{user.email}}</td>
-    </tr>
-    {% endfor %}
-</table>
-{% endblock %} -->
+{% endblock %}
