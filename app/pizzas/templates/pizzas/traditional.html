@@ -1,0 +1,109 @@
+{% extends "shared/base.html" %}
+
+{% block title %}Cardapio Digital | Pizzas Tradicionais{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('pizzas.static', filename='pizzas/traditional.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="fw-bold" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.801);">Pizzas Tradicionais</h1>
+
+<div class="container mt-5">
+    <div class="row gy-3">
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="card">
+                <img src="https://blog.novasafra.com.br/wp-content/uploads/2016/01/accb7d_37d37d9f1001e88384dafc6e5cc60c4f.jpg_1024.jpg"
+                    class="card-img-top" alt="Calabresa">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza de Calabresa</h5>
+                    <p class="card-text">(molho de tomate, mussarela, calabresa, cebola, azeitona e oregano.)</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    <span class="fw-bold text-success">R$ 29,99</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="card" id="pizzaMussarela">
+                <img src="https://carrefourbrfood.vtexassets.com/arquivos/ids/40282643/5733375_1.jpg?v=637826098581870000"
+                    class="card-img-top" alt="Mussarela">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza de Mussarela</h5>
+                    <p class="card-text">(molho de tomate, mussarela, tomate, azeitona e oregano.)</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    <span class="fw-bold text-success">R$ 29,99</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="card">
+                <img src="https://img77.uenicdn.com/image/upload/v1587225738/business/7458c216-75b0-44de-a561-c740ae903f36.jpg"
+                    class="card-img-top" alt="Mista">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza Mista</h5>
+                    <p class="card-text">(molho de tomate, mussarela, lanche, tomate, cebola, azeitona e oregano.)</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    <span class="fw-bold text-success">R$ 29,99</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pizzas/pizza-de-frango.jpg') }}" class="card-img-top" alt="Frango">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza de Frango</h5>
+                    <p class="card-text">(molho de tomate, mussarela, Frango, catupyri, tomate, azeitona e oregano.)</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    <span class="fw-bold text-success">R$ 29,99</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pizzas/pizza-de-portuguesa.jpg') }}" class="card-img-top" alt="Portuguesa">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza Portuguesa</h5>
+                    <p class="card-text">(molho de tomate, mussarela, lanche, ovo, pimentao, tomate, cebola, azeitona e oregano.)</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    <span class="fw-bold text-success">R$ 29,99</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pizzas/pizza-paulista.jpg') }}" class="card-img-top" alt="Paulista">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza Paulista</h5>
+                    <p class="card-text">(molho de tomate, mussarela, lanche, Frango, bacon, catupyri, azeitona e oregano.)</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    <span class="fw-bold text-success">R$ 29,99</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pizzas/2queijo.jpg') }}" class="card-img-top" alt="2 Queijos">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza de 2 Queijos</h5>
+                    <p class="card-text">(molho de tomate, mussarela, catupyri, azeitona e oregano.)</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    <span class="fw-bold text-success">R$ 29,99</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pizzas/bacon.jpg') }}" class="card-img-top" alt="Bacon">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza de bacon</h5>
+                    <p class="card-text">(molho de tomate, mussarela, bacon, cebola, azeitona e oregano.)</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    <span class="fw-bold text-success">R$ 29,99</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

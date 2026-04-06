@@ -1,0 +1,11 @@
+{% extends "shared/base.html" %}
+
+{% block title %}Cardapio Digital | Dashboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('dashboard.static', filename='dashboard/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>Welcome to the Dashboard!</h1>
+{% endblock %}

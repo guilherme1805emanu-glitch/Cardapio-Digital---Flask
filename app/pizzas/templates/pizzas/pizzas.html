@@ -1,0 +1,74 @@
+{% extends "shared/base.html" %}
+
+{% block title %}Cardapio Digital | Pizzas{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('pizzas.static', filename='pizzas/pizzas.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex grap-3 container">
+    <a href="/pizzas/traditional"><h3 class="fw-bold container" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.801);">Pizzas Tradicionais</h3></a>
+    <a href="/pizzas/artisan"><h3 class="fw-bold container" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.801);">Pizzas Artesanais</h3></a>
+    <a href="/pizzas/sweet"><h3 class="fw-bold container" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.801);">Pizzas Doces</h3></a>
+</div>
+
+<div class="container mt-5">
+  <div class="row gy-3">
+
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="card h-100">
+        <img src="https://blog.novasafra.com.br/wp-content/uploads/2016/01/accb7d_37d37d9f1001e88384dafc6e5cc60c4f.jpg_1024.jpg"
+             class="card-img-top" alt="Calabresa">
+        <div class="card-body">
+          <h5 class="card-title">Calabresa</h5>
+          <p class="card-text">Molho de tomate, mussarela, calabresa e cebola</p>
+          <span>
+            Pequena: R$ 12 <br>
+            Media: R$ 20 <br>
+            Grande: R$ 30
+          </span>
+          <a href="#" class="btn btn-primary w-100 mt-3">Adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="card h-100">
+        <img src="{{ url_for('static', filename='images/pizzas/carnedosol.jpg') }}"
+             class="card-img-top" alt="Carne do sol">
+        <div class="card-body">
+          <h5 class="card-title">Carne do Sol</h5>
+          <p class="card-text">Molho de tomate, mussarela, cebola, carne do sol, tomate, pimentao, azeitona, oregano.</p>
+          <span>
+            Pequena: R$ 15 <br>
+            Media: R$ 25 <br>
+            Grande: R$ 35
+          </span>
+          <a href="#" class="btn btn-primary w-100 mt-3">Adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="card h-100">
+        <img src="{{ url_for('static', filename='images/pizzas/doce.jpg') }}"
+             class="card-img-top" alt="Doce de MMs">
+        <div class="card-body">
+          <h5 class="card-title">Chocolate com MM'S</h5>
+          <p class="card-text">chocolate, mm's</p>
+          <span>
+            Pequena: R$ 15 <br>
+            Media: R$ 25 <br>
+            Grande: R$ 35
+          </span>
+          <a href="#" class="btn btn-primary w-100 mt-3">Adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
